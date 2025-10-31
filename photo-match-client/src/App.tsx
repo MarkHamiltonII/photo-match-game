@@ -1,32 +1,22 @@
-import { useReducer } from 'react'
+import { useReducer, useRef } from 'react'
 import './App.css'
-import { startingImages, startingPlayers } from "./constants"
+import { startingState } from "./constants"
 import { NavBar } from './components'
-import { getRandomItemFromList, getRandomNonRepeatingItemsFromList } from './util';
-import { ParticipantList, UpdateSettingsModal } from './features';
+import { CameraViewer, ParticipantList, UpdateSettingsModal } from './features';
 import { reducer } from './reducer';
+import { useGetImageWidth } from './hooks';
 
 export default function App() {
-  const startingImage = getRandomItemFromList(startingImages);
-  const startingImageList = startingImages.filter(image => image !== startingImage);
-  const startingParticpants = getRandomNonRepeatingItemsFromList(startingPlayers, startingImage.participants);
-  const startingParticipantsList = startingPlayers.filter(player => !startingParticpants.includes(player));
-  const [state, dispatch] = useReducer(reducer, {
-    imageRepository: startingImages,
-    participantRepository: startingPlayers,
-    currentImage: startingImage,
-    imageList: startingImageList,
-    currentParticpants: startingParticpants,
-    participantList: startingParticipantsList,
-    isModalOpen: false
-  })
-  const { imageRepository, participantRepository, currentImage: { url }, currentParticpants, isModalOpen } = state;
+  const [state, dispatch] = useReducer(reducer, startingState)
+  const { imageRepository, participantRepository, currentImage: { url }, currentParticpants, isModalOpen, cameraEnabled } = state;
   const toggleModal = () => dispatch({ type: "toggle_modal" });
 
   const halfIndex = Math.ceil(currentParticpants.length / 2)
   const firstHalfParticipants = currentParticpants.slice(0, halfIndex);
   const secondHalfParticipants = currentParticpants.slice(halfIndex);
 
+  const imageRef = useRef<HTMLImageElement | null>(null);
+  const width = useGetImageWidth({ imageRef, url })
 
   return (
     <div className='app-shell'>
@@ -34,17 +24,20 @@ export default function App() {
         <UpdateSettingsModal
           imageRepository={imageRepository}
           participantRepository={participantRepository}
+          cameraEnabled={cameraEnabled}
           onCancel={toggleModal}
           onAccept={
             ({
               imageRepository: updatedImages,
-              participantRepository: updatedParticipants
+              participantRepository: updatedParticipants,
+              cameraEnabled: updatedCameraEnabled
             }) => {
               dispatch({
-                type: "total_repository_update",
+                type: "settings_menu_update",
                 payload: {
                   imageRepository: updatedImages,
-                  participantRepository: updatedParticipants
+                  participantRepository: updatedParticipants,
+                  cameraEnabled: updatedCameraEnabled
                 }
               });
               toggleModal();
@@ -54,7 +47,8 @@ export default function App() {
       <NavBar onEditSettings={toggleModal} />
       <div className='app-body'>
         <ParticipantList participantList={firstHalfParticipants} />
-        <img src={url}></img>
+        {cameraEnabled && <CameraViewer videoWidth={width}/>}
+        <img src={url} ref={imageRef}></img>
         <ParticipantList participantList={secondHalfParticipants} />
       </div>
       <button className='btn' onClick={() => dispatch({ type: "next_image" })}>Next Image</button>

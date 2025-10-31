@@ -1,0 +1,35 @@
+.camera-container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    max-width: 45vw;
+    background-color: var(--secondary-color);
+    border: 10px solid var(--secondary-color-highlight)
+}
+
+.error {
+    position: absolute;
+    top: 2rem;
+    color: var(--high-contrast-color);
+    font-weight: bold;
+    background: var(--high-contrast-color-highlight);
+    border: 2px solid var(--high-contrast-color);
+    border-radius: 0.25rem;
+    padding: .5rem 1rem;
+    cursor: pointer;
+}
+
+.camera-container video {
+    width: fit-content;
+    height: 100%;
+}
+
+.camera-buttons {
+    position:absolute;
+    bottom: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}

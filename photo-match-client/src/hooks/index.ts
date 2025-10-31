@@ -1,0 +1,1 @@
+export { useGetImageWidth } from "./useGetImageWidth";

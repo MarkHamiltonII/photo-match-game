@@ -19,6 +19,8 @@
 img {
   height: 100%;
   width: fit-content;
+  max-width: 45vw;
+  object-fit: cover;
   border: 10px solid var(--outline-color)
 }
 
@@ -45,10 +47,12 @@ img {
 
 button.btn-secondary {
   background-color: var(--secondary-color);
+  color: var(--dark-text-color)
 }
 
 button.btn-secondary:hover {
   background-color: var(--secondary-color-highlight);
+  color: var(--light-text-color)
 }
 
 button.btn-secondary:active {
