@@ -12,7 +12,7 @@ export function useCameraSetup(args: Args) {
             try {
                 const constraints: MediaStreamConstraints = {
                     video: {
-                        facingMode: { ideal: "front" },
+                        facingMode: { ideal: "user" },
                         width: { ideal: 1920 },
                         height: { ideal: 1080 },
                     },
