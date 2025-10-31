@@ -1,0 +1,24 @@
+.modal {
+    position: fixed;
+    width: 650px;
+    max-height: 80vh;
+    top: 10vh;
+    left: 50vw;
+    transform: translateX(-50%);
+    border-radius: 2rem;
+    z-index: 1010;
+    box-shadow: 0 0 10px 0 var(--high-contrast-color-highlight);
+    background: var(--secondary-color-highlight);
+    border: 8px solid var(--secondary-color-highlight);
+    overflow: hidden auto;
+    display: flex;
+    flex-direction: column;
+}
+
+@media all and (width <=650px) {
+    .modal {
+        width: 100vw;
+        left: 0;
+        transform: none;
+    }
+}

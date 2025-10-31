@@ -1,0 +1,5 @@
+.modal-header {
+    padding: 20px;
+    background: var(--secondary-color-highlight);
+    position: relative;
+}

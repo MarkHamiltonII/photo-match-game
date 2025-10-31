@@ -1,0 +1,23 @@
+.modal-footer {
+    /* border-top: 2px solid var(--outline-color); */
+    padding: 15px 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.footer button:not(:first-of-type) {
+    margin-left: 20px;
+}
+
+.modal-footer-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.modal-footer-cancel-margin-left {
+    margin-left: 1rem;
+}

@@ -1,0 +1,44 @@
+.new-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    flex-grow: 1;
+    overflow-y: scroll;
+}
+
+.new-image-input {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.image-form-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-form-input label {
+    color: var(--dark-text-color);
+    font-weight: bold;
+}
+
+.image-form-input input {
+    flex-grow: 1;
+    width: max-content;
+    border-radius: 1rem;
+    background-color: var(--tertiary-color);
+    border: 2px solid var(--outline-color);
+    padding: 0.5rem;
+}
+
+.image-form-input input:focus {
+    border-color: var(--high-contrast-color);
+    box-shadow: 0 1px 1px 0 solid var(--high-contrast-color-highlight);
+}
+
+.image-form-input input:focus-visible {
+    outline: none;
+}

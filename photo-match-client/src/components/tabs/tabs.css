@@ -1,0 +1,16 @@
+.tabs {
+    display: flex;
+    border-bottom: 1px solid var(--outline-color);
+    margin-bottom: 1rem;
+}
+
+.tab {
+    padding: 0 1rem;
+    font-size: large;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.selected {
+    border-bottom: 2px solid var(--high-contrast-color);
+}

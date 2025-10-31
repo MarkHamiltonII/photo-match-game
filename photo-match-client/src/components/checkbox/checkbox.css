@@ -1,0 +1,45 @@
+.checkbox {
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+
+.checkbox input[type="checkbox"] {
+    appearance: none;
+    /* Hide default checkbox */
+    width: 25px;
+    height: 25px;
+    border: 2px solid var(--outline-color);
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    /* For positioning custom checkmark */
+}
+
+/* Style when checked */
+.checkbox input[type="checkbox"]:checked {
+    background-color: var(--contrast-color);
+    /* Blue background when checked */
+}
+
+/* Create a custom checkmark using a pseudo-element */
+.checkbox input[type="checkbox"]:checked::before {
+    content: '✓';
+    /* Unicode checkmark character */
+    color: var(--light-text-color);
+    font-size: 14px;
+    font-weight: 700;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-bottom: 2px;
+    padding-right: 1px;
+}
+
+.checkbox-label {
+    padding-top: .3rem;
+    padding-left: .5rem;
+    font-size: 18px;
+    font-weight: bold;
+}

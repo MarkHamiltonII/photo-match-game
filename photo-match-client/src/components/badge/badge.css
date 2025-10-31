@@ -1,0 +1,68 @@
+.badge {
+  border: 3px solid var(--outline-color);
+  border-radius: .5rem;
+  padding: .5rem;
+  background-color: var(--secondary-color);
+  font-weight: bold;
+  font-size: x-large;
+  color: var(--text-color);
+  margin: 0;
+  transition: all 1s ease;
+}
+
+.spin-in {
+  transform: rotate(-360deg);
+  opacity: 0;
+}
+.spin-in.active {
+  transform: rotate(0deg);
+  opacity: 1;
+}
+
+.slide-fade-in {
+    opacity: 0;
+    transform: translateX(-50px);
+}
+.slide-fade-in.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.pop-in {
+    opacity: 0;
+    transform: scale(0);
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+}
+.pop-in.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.flip-in {
+    opacity: 0;
+    transform: rotateY(90deg);
+    transform-origin: left;
+}
+.flip-in.active {
+    opacity: 1;
+    transform: rotateY(0deg);
+}
+
+.rot15-right {
+  transform: rotate(15deg) !important;
+}
+.rot10-right {
+  transform: rotate(10deg) !important;
+}
+.rot5-right {
+  transform: rotate(5deg) !important;
+}
+.rot15-left {
+  transform: rotate(-15deg) !important;
+}
+.rot5-left {
+  transform: rotate(-5deg) !important;
+}
+.rot10-left {
+  transform: rotate(-10deg) !important;
+}

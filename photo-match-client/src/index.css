@@ -1,0 +1,50 @@
+/* CSS HEX */
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background-color: var(--tertiary-color);
+}
+
+:root {
+  --primary-color: #05a8aa;
+  --primary-color-highlight: #88F9FB;
+  /* verdigris */
+  --secondary-color: #b8d5b8;
+  --secondary-color-highlight: #538D53;
+  /* celadon */
+  --tertiary-color: #d7b49e;
+  --tertiary-color-highlight: #AE6E47;
+  /* desert-sand */
+  --contrast-color: #dc602e;
+  --contrast-color-highlight: #E79473;
+  /* flame */
+  --high-contrast-color: #bc412b;
+  --high-contrast-color-highlight: #E1897A;
+  /* persian-red */
+  --light-text-color: #DCCDE8;
+  --dark-text-color: #36454F;
+  --disabled-text-color: #555;
+  --outline-color: #222222;
+}
+
+
+.bg-primary {
+  background-color: var(--primary-color) !important;
+}
+
+.bg-secondary {
+  background-color: var(--secondary-color) !important;
+}
+
+.bg-tertiary {
+  background-color: var(--tertiary-color) !important;
+}
+
+.bg-contrast {
+  background-color: var(--contrast-color) !important;
+}
+
+.bg-high-contrast {
+  background-color: var(--high-contrast-color) !important;
+}

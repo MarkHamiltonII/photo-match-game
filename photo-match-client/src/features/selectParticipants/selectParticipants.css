@@ -1,0 +1,13 @@
+.participant-toggle-container {
+    display: flex;
+    overflow-y: scroll;
+}
+
+.participant-toggle-list {
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+    overflow: scroll;
+    border-right: 1px solid var(--outline-color);
+    padding-right: 1rem;
+}

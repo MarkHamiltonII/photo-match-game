@@ -1,0 +1,39 @@
+.new-participant {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-grow: 1;
+}
+
+.participant-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 75%;
+    gap: 0.5rem;
+}
+
+.participant-form label {
+    color: var(--dark-text-color);
+    font-weight: bold;
+}
+
+.participant-form input {
+    flex-grow: 1;
+    width: max-content;
+    border-radius: 1rem;
+    background-color: var(--tertiary-color);
+    border: 2px solid var(--outline-color);
+    padding: 0.5rem;
+}
+
+.participant-form input:focus {
+    border-color: var(--high-contrast-color);
+    box-shadow: 0 1px 1px 0 solid var(--high-contrast-color-highlight);
+}
+
+.participant-form input:focus-visible {
+    outline: none;
+}

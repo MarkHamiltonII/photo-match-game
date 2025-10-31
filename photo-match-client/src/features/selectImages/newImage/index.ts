@@ -1,0 +1,1 @@
+export { NewImage } from "./NewImage"

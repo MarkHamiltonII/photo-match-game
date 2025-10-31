@@ -1,0 +1,1 @@
+export { UpdateSettingsModal } from "./UpdateSettingsModal"
