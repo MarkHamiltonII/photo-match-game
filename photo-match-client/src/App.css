@@ -20,7 +20,7 @@
 img {
   height: 100%;
   width: fit-content;
-  max-width: 45vw;
+  max-width: 40vw;
   object-fit: cover;
   border: 10px solid var(--outline-color)
 }
