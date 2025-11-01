@@ -4,7 +4,7 @@ import { startingState } from "./constants"
 import { NavBar } from './components'
 import { CameraViewer, ParticipantList, UpdateSettingsModal } from './features';
 import { reducer } from './reducer';
-import { useGetImageWidth } from './hooks';
+import { useGetImageWidth, useIsMobile } from './hooks';
 
 export default function App() {
   const [state, dispatch] = useReducer(reducer, startingState)
@@ -17,6 +17,7 @@ export default function App() {
 
   const imageRef = useRef<HTMLImageElement | null>(null);
   const width = useGetImageWidth({ imageRef, url })
+  const isMobile = useIsMobile();
 
   return (
     <div className='app-shell'>
@@ -47,8 +48,10 @@ export default function App() {
       <NavBar onEditSettings={toggleModal} />
       <div className='app-body'>
         <ParticipantList participantList={firstHalfParticipants} />
+        <div className={`media-container ${isMobile ? "mobile" : undefined}`}>
         {cameraEnabled && <CameraViewer videoWidth={width}/>}
         <img src={url} ref={imageRef}></img>
+        </div>
         <ParticipantList participantList={secondHalfParticipants} />
       </div>
       <button className='btn' onClick={() => dispatch({ type: "next_image" })}>Next Image</button>

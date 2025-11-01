@@ -26,10 +26,32 @@
     height: 100%;
 }
 
+
+
 .camera-buttons {
-    position:absolute;
+    position: absolute;
     bottom: 2rem;
     width: 100%;
     display: flex;
     justify-content: space-evenly;
+}
+
+.flip-button {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    font-size: larger;
+    padding: .25rem;
+}
+
+@media (min-width: 768px) {
+    .camera-container.mobile video {
+        width: 100%;
+        height: fit-content;
+    }
+
+    .camera-buttons {
+        bottom: .5rem;
+        justify-content: space-between;
+    }
 }

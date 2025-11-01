@@ -1,7 +1,9 @@
 import { useRef, useState } from "react"
+import { MdFlipCameraIos } from "react-icons/md"
 import "./cameraViewer.css"
 import { takePhoto } from "./util";
 import { useCameraSetup } from "./hooks";
+import { useIsMobile } from "../../hooks";
 
 export function CameraViewer(props: Props) {
     const { videoWidth } = props;
@@ -9,8 +11,11 @@ export function CameraViewer(props: Props) {
     const [error, setError] = useState<string | undefined>(undefined);
     const [photo, setPhoto] = useState<string | null>(null);
     const [isActive, setIsActive] = useState(true);
+    const [cameraFacing, setCameraFacing] = useState<"environment" | "user">("user")
 
-    useCameraSetup({ videoRef, setError, isActive })
+    const isMobile = useIsMobile();
+
+    useCameraSetup({ videoRef, setError, isActive, cameraFacing })
 
     function handleTakePhoto() {
         if (videoRef.current) {
@@ -20,7 +25,7 @@ export function CameraViewer(props: Props) {
     }
 
     return (
-        <div className="camera-container" style={{ width: videoWidth }}>
+        <div className={`camera-container ${isMobile ? "mobile" : ""}`} style={{ width: videoWidth }}>
             {photo ?
                 <img src={photo} />
                 :
@@ -46,6 +51,11 @@ export function CameraViewer(props: Props) {
                     Take Photo
                 </button>}
             </div>
+            {!photo && isMobile && <button
+                className="btn btn-tertiary flip-button"
+                onClick={() => setCameraFacing(prev => prev === "environment" ? "user" : "environment")}>
+                <MdFlipCameraIos />
+            </button>}
             {error && (
                 <div className="error" onClick={() => setError("")}>
                     {error}

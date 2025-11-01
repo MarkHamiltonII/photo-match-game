@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 export function useCameraSetup(args: Args) {
-    const { isActive, setError, videoRef } = args;
+    const { isActive, cameraFacing, setError, videoRef } = args;
 
 
     useEffect(() => {
@@ -12,7 +12,7 @@ export function useCameraSetup(args: Args) {
             try {
                 const constraints: MediaStreamConstraints = {
                     video: {
-                        facingMode: { ideal: "user" },
+                        facingMode: { ideal: cameraFacing },
                         width: { ideal: 1920 },
                         height: { ideal: 1080 },
                     },
@@ -43,12 +43,13 @@ export function useCameraSetup(args: Args) {
                 currentStream.getTracks().forEach(t => t.stop())
             }
         }
-    }, [isActive])
+    }, [isActive, cameraFacing])
 
 }
 
 type Args = {
     videoRef: React.RefObject<HTMLVideoElement | null>;
+    cameraFacing: "environment" | "user";
     setError: (error: string | undefined) => void;
     isActive: boolean;
 }

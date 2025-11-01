@@ -14,6 +14,7 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  position: relative;
 }
 
 img {
@@ -23,6 +24,42 @@ img {
   object-fit: cover;
   border: 10px solid var(--outline-color)
 }
+
+.media-container {
+  display: flex;
+  height: 100%;
+  max-width: 90vw;
+}
+
+@media (min-width: 300px) {
+  
+  .app-body {
+    padding-top: 1.5rem;
+    height: 75%
+  }
+
+  .media-container.mobile {
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+  }
+  
+  .mobile img {
+    width: 90vw;
+  }
+}
+@media (min-width: 768px) {
+  
+  .media-container.mobile {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .mobile img {
+    width: 90vw;
+  }
+}
+
 
 .btn {
   background-color: var(--primary-color);
