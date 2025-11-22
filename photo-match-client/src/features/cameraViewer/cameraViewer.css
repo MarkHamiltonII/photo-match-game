@@ -26,6 +26,9 @@
     height: 100%;
 }
 
+.camera-container img {
+    border: none;
+}
 
 
 .camera-buttons {
