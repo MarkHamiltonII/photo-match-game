@@ -7,14 +7,15 @@ export type State = {
   imageList: Image[],
   currentParticpants: Participant[],
   participantList: Participant[],
-  isModalOpen: boolean
+  isModalOpen: boolean,
+  cameraEnabled: boolean;
 }
 
 export type Action =
-  { type: "next_image" | "toggle_modal" } |
+  { type: "next_image" | "toggle_modal" | "toggle_camera"} |
   UpdateImageRepositoryAction |
   UpdateParticipantRepositoryAction |
-  TotalRepositoryUpdateAction
+  SettingsMenuUpdateAction
  
 
 export type UpdateParticipantRepositoryAction = { 
@@ -27,10 +28,11 @@ export type UpdateImageRepositoryAction = {
     payload: Image[] 
 }
 
-export type TotalRepositoryUpdateAction = {
-    type: "total_repository_update",
+export type SettingsMenuUpdateAction = {
+    type: "settings_menu_update",
     payload: { 
         imageRepository: Image[], 
-        participantRepository: Participant[]
+        participantRepository: Participant[],
+        cameraEnabled: boolean,
     }
 }

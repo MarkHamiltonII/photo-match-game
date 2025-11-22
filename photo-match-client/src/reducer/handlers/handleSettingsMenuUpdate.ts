@@ -2,14 +2,15 @@ import type { Participant, Image } from "../../types";
 import type { State } from "../types";
 import { handleNextImage } from "./handleNextImage";
 
-export function handleTotalRepositoryUpdate(
+export function handleSettingsMenuUpdate(
     state: State,
     payload: {
         participantRepository: Participant[],
-        imageRepository: Image[]
+        imageRepository: Image[],
+        cameraEnabled: boolean,
     }
 ) {
-    const { imageRepository, participantRepository } = payload;
+    const { imageRepository, participantRepository, cameraEnabled } = payload;
     const updatedParticipantList = participantRepository.filter(p => p.selected);
     const updatedImageList = imageRepository.filter(i => i.selected);
     const participantsUpdated: State = {
@@ -17,7 +18,8 @@ export function handleTotalRepositoryUpdate(
         participantRepository,
         participantList: updatedParticipantList,
         imageRepository,
-        imageList: updatedImageList
+        imageList: updatedImageList,
+        cameraEnabled
     };
     return handleNextImage(participantsUpdated);
 }

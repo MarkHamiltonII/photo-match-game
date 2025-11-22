@@ -1,0 +1,57 @@
+.camera-container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    max-width: 45vw;
+    background-color: var(--secondary-color);
+    border: 10px solid var(--secondary-color-highlight)
+}
+
+.error {
+    position: absolute;
+    top: 2rem;
+    color: var(--high-contrast-color);
+    font-weight: bold;
+    background: var(--high-contrast-color-highlight);
+    border: 2px solid var(--high-contrast-color);
+    border-radius: 0.25rem;
+    padding: .5rem 1rem;
+    cursor: pointer;
+}
+
+.camera-container video {
+    width: fit-content;
+    height: 100%;
+}
+
+
+
+.camera-buttons {
+    position: absolute;
+    bottom: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.flip-button {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    font-size: larger;
+    padding: .25rem;
+}
+
+@media (min-width: 768px) and (max-width: 1000px) {
+    .camera-container.mobile video {
+        width: 100%;
+        height: fit-content;
+    }
+
+    .camera-buttons {
+        bottom: .5rem;
+        justify-content: space-between;
+    }
+}
